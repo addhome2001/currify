@@ -1,0 +1,45 @@
+{
+  "name": "currify",
+  "description": "",
+  "version": "0.0.1",
+  "author": {
+    "name": "addhome2001",
+    "url": "https://github.com/addhome2001"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/addhome2001/currify.git"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": ">=4.2.2"
+  },
+  "keywords": [
+    "curry",
+    "functional",
+    "programing",
+    "currify",
+    "currying"
+  ],
+  "scripts": {
+    "test:watch": "./node_modules/.bin/ava -w --verbose",
+    "test": "nyc ./node_modules/.bin/ava",
+    "report": "nyc report --reporter=html"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.15",
+    "eslint": "3.12.0",
+    "eslint-config-airbnb-base": "10.0.1",
+    "eslint-plugin-import": "2.2.0",
+    "nyc": "10.0.0"
+  },
+  "dependencies": {
+    "ava": "0.17.0"
+  },
+  "ava": {
+    "files": [
+      "test/*.js"
+    ]
+  }
+}
