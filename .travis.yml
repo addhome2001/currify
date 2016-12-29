@@ -4,3 +4,5 @@ node_js:
   - "4.4.7"
 after_success:
     - './node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls'
+script:
+    - npm run lint
