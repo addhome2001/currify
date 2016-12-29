@@ -25,7 +25,8 @@
   "scripts": {
     "test:watch": "./node_modules/.bin/ava -w --verbose",
     "test": "nyc ./node_modules/.bin/ava",
-    "report": "nyc report --reporter=html"
+    "report": "nyc report --reporter=html",
+    "lint": "./node_modules/.bin/eslint lib --ignore-path .gitignore"
   },
   "devDependencies": {
     "coveralls": "^2.11.15",
