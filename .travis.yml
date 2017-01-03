@@ -3,6 +3,6 @@ node_js:
   - "6"
   - "4.4.7"
 after_success:
-    - './node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls'
+    - './node_modules/.bin/nyc npm test report --reporter=text-lcov | ./node_modules/.bin/coveralls'
 script:
     - npm run lint
