@@ -25,11 +25,10 @@
   "scripts": {
     "test:watch": "./node_modules/.bin/ava -w --verbose",
     "test": "nyc ./node_modules/.bin/ava",
-    "report": "nyc report --reporter=html",
     "lint": "./node_modules/.bin/eslint lib --ignore-path .gitignore"
   },
   "devDependencies": {
-    "coveralls": "^2.11.15",
+    "coveralls": "2.11.15",
     "eslint": "3.12.0",
     "eslint-config-airbnb-base": "10.0.1",
     "eslint-plugin-import": "2.2.0",
