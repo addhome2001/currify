@@ -1,13 +1,16 @@
 {
   "extends": "airbnb-base",
   "env": {
-    "browser": true
+    "browser": true,
+    "node": true
   },
   "rules": {
     "no-console": ["error", { "allow": ["log"] } ],
     "no-var": "off",
     "prefer-rest-params": "off",
     "prefer-spread": "off",
-    "func-names": ["error", "never"]
+    "prefer-arrow-callback": "off",
+    "func-names": ["error", "never"],
+    "object-shorthand": "off",
   }
 }
