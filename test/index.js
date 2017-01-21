@@ -52,7 +52,6 @@ ava('should return result', (t) => {
 ava('should return uncurrify function passing by currify function', (t) => {
   const curry = currify((a, b, c) => a * b * c);
   const uncurry = uncurrify(curry);
-
   t.is(uncurry(1, 2, 3), curry(1, 2)(3), 6);
 });
 
@@ -81,7 +80,7 @@ ava('should throw Error if passing arguments\' is empty and can not invoke just 
   const { message } = t.throws(() => {
     uncurry();
   }, Error);
-  t.is(message, 'Arguments too much');
+  t.is(message, 'Arguments is not enough');
 });
 
 ava('should throw Error if passing arguments\' is more than expect', (t) => {
