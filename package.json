@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git://github.com/addhome2001/currify.git"
   },
-  "main": "index.js",
+  "main": "./lib/index.js",
   "engines": {
     "node": ">=4.2.2"
   },
