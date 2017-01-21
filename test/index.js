@@ -62,6 +62,37 @@ ava('should return uncurrify function if passing arguments\' length is correct',
   t.is(uncurry(1, 2, 3), 6);
 });
 
+ava('should return uncurrify function if passing a currify function', (t) => {
+  const multiple = ((a, b) => c => d => a * b * c * d);
+  const curry = currify(multiple);
+  const uncurry = uncurrify(curry);
+  t.is(uncurry(1, 2, 3, 4), 24);
+});
+
+ava('should throw Error if passing arguments\' is empty and can invoke just once time', (t) => {
+  const curry = (() => 1 + 2);
+  const uncurry = uncurrify(curry);
+  t.is(uncurry(), 3);
+});
+
+ava('should throw Error if passing arguments\' is empty and can not invoke just once time', (t) => {
+  const curry = (a => b => a + b);
+  const uncurry = uncurrify(curry);
+  const { message } = t.throws(() => {
+    uncurry();
+  }, Error);
+  t.is(message, 'Arguments too much');
+});
+
+ava('should throw Error if passing arguments\' is more than expect', (t) => {
+  const curry = (a => b => c => (+a) + (+b) + (+c));
+  const uncurry = uncurrify(curry);
+  const { message } = t.throws(() => {
+    uncurry(1, 2, 3, 4, 5);
+  }, Error);
+  t.is(message, 'Arguments too much');
+});
+
 ava('should throw Error if passing arguments\' is not enough', (t) => {
   const curry = (a => b => c => (+a) + (+b) + (+c));
   const uncurry = uncurrify(curry);
