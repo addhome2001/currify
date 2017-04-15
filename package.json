@@ -1,5 +1,5 @@
 {
-  "name": "currify",
+  "name": "utility",
   "description": "",
   "version": "0.0.1",
   "author": {
@@ -9,23 +9,17 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/addhome2001/currify.git"
+    "url": "git://github.com/addhome2001/utility.git"
   },
   "main": "./lib/index.js",
   "engines": {
-    "node": ">=4.2.2"
+    "node": ">=4.4.7"
   },
-  "keywords": [
-    "curry",
-    "functional",
-    "programing",
-    "currify",
-    "currying"
-  ],
   "scripts": {
     "test:watch": "./node_modules/.bin/ava -w --verbose",
     "test": "nyc ./node_modules/.bin/ava",
-    "lint": "./node_modules/.bin/eslint lib --ignore-path .gitignore"
+    "lint": "./node_modules/.bin/eslint lib --ignore-path .gitignore",
+    "validate": "npm run lint && npm run test"
   },
   "devDependencies": {
     "eslint": "3.12.0",
