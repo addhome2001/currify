@@ -3,10 +3,8 @@
 [![Build Status](https://travis-ci.org/addhome2001/currify.svg?branch=master)](https://travis-ci.org/addhome2001/currify)
 [![Known Vulnerabilities](https://snyk.io/test/github/addhome2001/currify/badge.svg)](https://snyk.io/test/github/addhome2001/currify)
 
-## Usage
-
-#### currify
-
+currify
+------
 ```js
 const sum = currify((a, b, c) => a + b + c);
 
@@ -24,7 +22,8 @@ sum2(4); // -> 7
 sum2(5); // -> 8
 ```
 
-#### uncurrify
+uncurrify
+------
 ```js
 const uncurry = uncurrify(a => b => c => a * b * c);
 uncurry(1, 2, 3); // -> 6
