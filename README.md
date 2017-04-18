@@ -8,7 +8,7 @@ currify
 ```js
 const sum = currify((a, b, c) => a + b + c);
 
-// Pass partial arguments
+// Passing partial arguments
 sum(1, 2)(3));
 sum(1)(2, 3));
 sum(1)(2)(3));
@@ -16,7 +16,7 @@ sum(1)(2)(3));
 // Or full arguments
 sum(1, 2, 3);
 
-// A currify function will return a new curried function
+// Currify function will return a new curried function
 sum2 = sum(1, 2);
 sum2(4); // -> 7
 sum2(5); // -> 8
@@ -27,8 +27,8 @@ uncurrify
 ```js
 const uncurry = uncurrify(a => b => c => a * b * c);
 uncurry(1, 2, 3); // -> 6
-uncurry(1, 2, 3, 4, 5); // Throw Error: Arguments is too much
-uncurry(1); // Throw Error: Arguments is not enough
+uncurry(1, 2, 3, 4, 5); // Throw Error: Arguments are too much
+uncurry(1); // Throw Error: Arguments are not enough
 ```
 If the uncurrify function does not take any parameters.
 ```js
