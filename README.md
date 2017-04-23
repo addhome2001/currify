@@ -36,6 +36,12 @@ const uncurry = uncurrify(() => 1 + 2);
 uncurry('foo bar') // -> 3
 ```
 
+debounce
+------
+
+throttle
+------
+
 LICENSE
 =======
 
