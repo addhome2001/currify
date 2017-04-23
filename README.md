@@ -41,8 +41,3 @@ debounce
 
 throttle
 ------
-
-LICENSE
-=======
-
-MIT
