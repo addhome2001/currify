@@ -1,7 +1,13 @@
 import ava from 'ava';
 import uncurrify from '../lib/uncurrify';
 
-ava('should throw Error if passing arguments\' is empty and can invoke just once time', (t) => {
+ava('should return result', (t) => {
+  const curry = (a => b => c => a * b * c);
+  const uncurry = uncurrify(curry);
+  t.is(uncurry(1, 2, 3), 6);
+});
+
+ava('should return result if the uncurrify function does not take any parameters', (t) => {
   const curry = (() => 1 + 2);
   const uncurry = uncurrify(curry);
   t.is(uncurry(), 3);
