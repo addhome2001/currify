@@ -15,7 +15,7 @@ ava.afterEach(() => {
   mockFunc.reset();
 });
 
-ava('should return throttled function.', (t) => {
+ava('return throttled function', (t) => {
   const throttled = throttleCurrify();
 
   throttled('trigger 1');
@@ -43,7 +43,7 @@ ava('should return throttled function.', (t) => {
   t.is(mockFunc.getCall(5).args[0], 'trigger 4');
 });
 
-ava('should the func is invoked only on the leading edge if trailing is false.', (t) => {
+ava('trailing is false', (t) => {
   const throttled = throttleCurrify({ trailing: false });
 
   throttled('trigger 1');
@@ -57,7 +57,7 @@ ava('should the func is invoked only on the leading edge if trailing is false.',
   t.is(mockFunc.getCall(1).args[0], 'trigger 2');
 });
 
-ava('should the func is invoked on the trailing edge if leading is false.', (t) => {
+ava('leading is false', (t) => {
   const throttled = throttleCurrify({ leading: false });
 
   throttled('trigger 1');
@@ -79,7 +79,7 @@ ava('should the func is invoked on the trailing edge if leading is false.', (t) 
   t.is(mockFunc.getCall(1).args[0], 'trigger 3');
 });
 
-ava('should not invoke func if leading and trailing are falsly.', (t) => {
+ava('leading and trailing are false', (t) => {
   const throttled = throttleCurrify({ leading: false, trailing: false });
 
   throttled('trigger 1');
@@ -95,7 +95,7 @@ ava('should not invoke func if leading and trailing are falsly.', (t) => {
   t.is(mockFunc.callCount, 0);
 });
 
-ava('should the func invocation is deferred until to the next tick.', (t) => {
+ava('deferred until to the next tick', (t) => {
   const throttled = throttle(mockFunc, 0, { leading: false });
 
   throttled('trigger 1');
@@ -117,7 +117,7 @@ ava('should the func invocation is deferred until to the next tick.', (t) => {
   t.is(mockFunc.getCall(3).args[0], 'trigger 2');
 });
 
-ava('should throw error if the func is not a function.', (t) => {
+ava('func is not a function', (t) => {
   const { message } = t.throws(() => {
     throttle('Not a Function.');
   }, Error);

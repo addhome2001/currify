@@ -15,7 +15,7 @@ ava.afterEach(() => {
   mockFunc.reset();
 });
 
-ava('should return debounced function.', (t) => {
+ava('return debounced function', (t) => {
   const debounced = debounceCurrify();
 
   debounced('trigger 1');
@@ -49,7 +49,7 @@ ava('should return debounced function.', (t) => {
   t.is(mockFunc.getCall(5).args[0], 'trigger 4');
 });
 
-ava('should the func is invoked only on the leading edge if trailing is false.', (t) => {
+ava('trailing is false', (t) => {
   const debounced = debounceCurrify({ trailing: false });
 
   debounced('trigger 1');
@@ -68,7 +68,7 @@ ava('should the func is invoked only on the leading edge if trailing is false.',
   t.is(mockFunc.getCall(1).args[0], 'trigger 3');
 });
 
-ava('should the func is invoked on the trailing edge if leading is false.', (t) => {
+ava('leading is false', (t) => {
   const debounced = debounceCurrify({ leading: false });
 
   debounced('trigger 1');
@@ -95,7 +95,7 @@ ava('should the func is invoked on the trailing edge if leading is false.', (t) 
   t.is(mockFunc.getCall(1).args[0], 'trigger 5');
 });
 
-ava('should not invoke func if leading and trailing are falsly.', (t) => {
+ava('leading and trailing are false', (t) => {
   const debounced = debounceCurrify({ leading: false, trailing: false });
 
   debounced('trigger 1');
@@ -111,7 +111,7 @@ ava('should not invoke func if leading and trailing are falsly.', (t) => {
   t.is(mockFunc.callCount, 0);
 });
 
-ava('should the func invocation is deferred until to the next tick.', (t) => {
+ava('deferred until to the next tick', (t) => {
   const debounced = debounce(mockFunc, 0, { leading: false });
 
   debounced('trigger 1');
@@ -133,7 +133,7 @@ ava('should the func invocation is deferred until to the next tick.', (t) => {
   t.is(mockFunc.getCall(3).args[0], 'trigger 2');
 });
 
-ava('should not delay invoking if delay time is more than maxWait.', (t) => {
+ava('delay time is more than maxWait', (t) => {
   const debounced = debounce(mockFunc, 2000, { leading: false, maxWait: 2000 });
 
   debounced('trigger 1');
@@ -145,7 +145,7 @@ ava('should not delay invoking if delay time is more than maxWait.', (t) => {
   t.is(mockFunc.getCall(0).args[0], 'trigger 1');
 });
 
-ava('should throw error if the func is not a function.', (t) => {
+ava('func is not a function', (t) => {
   const { message } = t.throws(() => {
     debounce('Not a Function.');
   }, Error);

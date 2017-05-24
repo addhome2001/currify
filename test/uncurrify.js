@@ -1,19 +1,19 @@
 import ava from 'ava';
 import uncurrify from '../lib/uncurrify';
 
-ava('should return result', (t) => {
+ava('return result', (t) => {
   const curry = (a => b => c => a * b * c);
   const uncurry = uncurrify(curry);
   t.is(uncurry(1, 2, 3), 6);
 });
 
-ava('should return result if the uncurrify function does not take any parameters', (t) => {
+ava('expect arguments are empty', (t) => {
   const curry = (() => 1 + 2);
   const uncurry = uncurrify(curry);
   t.is(uncurry(), 3);
 });
 
-ava('should throw Error if passing arguments\' is empty and can not invoke just once time', (t) => {
+ava('arguments are not enough', (t) => {
   const curry = (a => b => a + b);
   const uncurry = uncurrify(curry);
   const { message } = t.throws(() => {
@@ -22,7 +22,7 @@ ava('should throw Error if passing arguments\' is empty and can not invoke just 
   t.is(message, 'Arguments are not enough');
 });
 
-ava('should throw Error if passing arguments\' is more than expect', (t) => {
+ava('arguments are too much', (t) => {
   const curry = (a => b => c => (+a) + (+b) + (+c));
   const uncurry = uncurrify(curry);
   const { message } = t.throws(() => {
@@ -31,7 +31,7 @@ ava('should throw Error if passing arguments\' is more than expect', (t) => {
   t.is(message, 'Arguments are too much');
 });
 
-ava('should throw Error if passing arguments\' is not enough', (t) => {
+ava('arguments are not enough', (t) => {
   const curry = (a => b => c => (+a) + (+b) + (+c));
   const uncurry = uncurrify(curry);
   const { message } = t.throws(() => {

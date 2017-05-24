@@ -5,15 +5,15 @@ const getArgs = function () {
   return toArray(arguments);
 };
 
-ava('should return arguments to an array', (t) => {
+ava('toArray', (t) => {
   t.deepEqual(getArgs(1, 2, 3), [1, 2, 3]);
 });
 
-ava('should return empty array if arguments is not exist', (t) => {
+ava('passing undefined', (t) => {
   t.deepEqual(getArgs(), []);
 });
 
-ava('should throw Error', (t) => {
+ava('throw an Error', (t) => {
   const error = t.throws(() => {
     throwError('New Error');
   }, Error);

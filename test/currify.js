@@ -1,13 +1,13 @@
 import ava from 'ava';
 import currify from '../lib/currify';
 
-ava('should return same result as before', (t) => {
+ava('parital application', (t) => {
   const s = (a, b, c) => a + b + c;
   const sc = currify(s);
   t.is(sc(1)(2)(3), s(1, 2, 3));
 });
 
-ava('should currfied function not affect each other', (t) => {
+ava('isolation', (t) => {
   const add = currify((a, b) => a + b);
   const add1 = add(1);
   const add2 = add(2);
@@ -21,7 +21,7 @@ ava('should currfied function not affect each other', (t) => {
   t.is(add5(5), 10);
 });
 
-ava('should allow combine multiple currify function', (t) => {
+ava('multiple currify function', (t) => {
   const square = currify(a => a ** 2);
   const identify = currify(value => ({ value: square(value) }));
   const zipWith = currify((cb, a) => a.map(cb));
@@ -33,7 +33,7 @@ ava('should allow combine multiple currify function', (t) => {
   );
 });
 
-ava('should allow multiple arguments to be passed at a time', (t) => {
+ava('passing multiple arguments', (t) => {
   const sum3 = currify((a, b, c) => a + b + c);
 
   t.is(sum3(1, 2, 3), sum3(1, 2)(3));
